@@ -1,13 +1,19 @@
 services:
   backend:
-    image: khintervenant/ci-ci-pipeline:backend
+    image: Djamel2s/ci-ci-pipeline:backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
     ports:
       - "3001:3001"
     networks:
       - appbridge
 
   frontend:
-    image: khintervenant/ci-ci-pipeline:frontend
+    image: Djamel2s/ci-ci-pipeline:frontend
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
     ports:
       - "3000:3000"
     networks:
