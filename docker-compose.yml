@@ -2,8 +2,8 @@ services:
   backend:
     image: Djamel2s/ci-ci-pipeline:backend
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
     networks:
@@ -12,8 +12,8 @@ services:
   frontend:
     image: Djamel2s/ci-ci-pipeline:frontend
     build:
-      context: .
-      dockerfile: frontend/Dockerfile
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     networks:
