@@ -1,11 +1,18 @@
-version: "3.8"
 services:
   backend:
-    image: khintervenant/ci-cd-testing-deploy:backend
+    image: khintervenant/ci-ci-pipeline:backend
     ports:
       - "3001:3001"
+    networks:
+      - appbridge
 
   frontend:
-    image: khintervenant/ci-cd-testing-deploy:frontend
+    image: khintervenant/ci-ci-pipeline:frontend
     ports:
       - "3000:3000"
+    networks:
+      - appbridge
+
+networks:
+  appbridge:
+    driver: bridge
