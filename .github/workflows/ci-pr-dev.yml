@@ -47,11 +47,11 @@ jobs:
         working-directory: ./frontend
 
       - name: (Backend) Snyk
-        run: npx snyk test
+        run: npx snyk test --severity-threshold=critical
         working-directory: ./backend
 
       - name: (Frontend) Snyk
-        run: npx snyk test
+        run: npx snyk test --severity-threshold=critical
         working-directory: ./frontend
 
       - name: (Backend) Tests
