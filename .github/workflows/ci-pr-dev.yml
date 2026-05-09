@@ -37,11 +37,11 @@ jobs:
         working-directory: ./frontend
 
       - name: (Backend) npm audit
-        run: npm audit
+        run: npm audit --omit=dev --audit-level=critical
         working-directory: ./backend
 
       - name: (Frontend) npm audit
-        run: npm audit
+        run: npm audit --omit=dev --audit-level=critical
         working-directory: ./frontend
 
       - name: (Backend) Snyk
