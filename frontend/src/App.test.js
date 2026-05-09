@@ -1,8 +1,20 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders message from backend", async () => {
+  global.fetch = jest.fn(() =>
+    Promise.resolve({
+      json: () =>
+        Promise.resolve({
+          message: "Hello from the backend! the secret value is test",
+        }),
+    }),
+  );
+
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const message = await screen.findByText(/Hello from the backend/i);
+  expect(message).toBeInTheDocument();
+
+  global.fetch.mockClear();
 });
